@@ -27,6 +27,7 @@ const edad=18
 
 console.assert(edad < 18, "La edad debe ser menor o igual a 18")
 
+//PROCESS
 // Le pasas los argumentos al cargar el archivo con node (node app.js rodrigo aliende)
 console.log(process.argv)
 nombre = process.argv[2]
@@ -36,3 +37,18 @@ concatena(nombre,apellido)
 function concatena(nombre, apellido) {
     console.log(nombre + " " + apellido)
 }
+
+console.log('Lista de argumentos: ')
+for (let i = 2; i < process.argv.length; i++) {
+        console.log('argumento' + i + ' = ' + process.argv[i])
+}
+
+console.log(process.memoryUsage())
+
+//SISTEMA OPERATIVO (OS)
+const os = require('os')
+
+console.log(os.type())
+console.log(os.homedir())
+console.log(os.uptime())
+console.log(os.userInfo())
