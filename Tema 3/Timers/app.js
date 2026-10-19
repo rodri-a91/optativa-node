@@ -60,3 +60,9 @@ fs.unlink('index.html', (err) => {
 
     console.log("Borrado con éxito")
 })
+
+// Método síncrono de lectura de archivo
+console.log('Antes de leer el archivo')
+const archivo = fs.readFileSync('index.html', 'utf-8')
+console.log(archivo)
+console.log('Después de leer el archivo...')
