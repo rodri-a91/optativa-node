@@ -23,12 +23,26 @@ function procesarPedido(respuesta) {
 }
 
 //Encadenamiento de promesas
-ordenarProducto('taza').then(respuesta => {
-    console.log('Respuesta recibida')
-    console.log(respuesta)
-    return procesarPedido(respuesta)
-}).then(respuestaProcesada => {
-    console.log(respuestaProcesada)
-}).catch(error => {
-    console.log(error)
-})
+// ordenarProducto('taza').then(respuesta => {
+//     console.log('Respuesta recibida')
+//     console.log(respuesta)
+//     return procesarPedido(respuesta)
+// }).then(respuestaProcesada => {
+//     console.log(respuestaProcesada)
+// }).catch(error => {
+//     console.log(error)
+// })
+
+async function realizarPedido(producto) {
+    try {
+        const respuesta = await ordenarProducto(producto)
+        console.log("Respuesta recibida")
+        const respuestaProcesada = await procesarPedido(respuesta)
+        console.log(respuestaProcesada)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+realizarPedido('taza')
+realizarPedido('cuchara')

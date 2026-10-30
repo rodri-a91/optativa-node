@@ -1,0 +1,11 @@
+### método post:
+POST http://localhost:3000/
+
+### método put:
+PUT http://localhost:3000/
+
+### método get:
+GET http://localhost:3000/
+
+### método delete:
+DELETE  http://localhost:3000/
