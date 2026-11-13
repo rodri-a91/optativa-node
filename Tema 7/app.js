@@ -74,7 +74,21 @@ function gestionarSolicitudPOST(req, res) {
 
     if (path === '/api/cursos/programacion') {
         res.statusCode = 200
-        return res.end('El servidor recibió una solicitud POST para /cursos/programacion')
+        let cuerpo = ""
+        req.on('data', contenido => {
+            cuerpo += contenido.toString()
+        })
+
+        req.on('end', () => {
+            console.log(cuerpo)
+            console.log(typeof cuerpo)
+            cuerpo = JSON.parse(cuerpo)
+            console.log(typeof cuerpo)
+            console.log(`título cambiado: ${cuerpo.titulo}`)
+            return res.end('El servidor recibió una solicitud POST para /cursos/programacion')
+
+        })
+
     }
 }
 
